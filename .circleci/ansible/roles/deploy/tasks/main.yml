@@ -1,0 +1,4 @@
+- name: "extract zipped file"
+  unarchive:
+    src: ~/artifact.tar.gz
+    dest: ~/
