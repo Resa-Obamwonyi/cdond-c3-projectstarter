@@ -1,21 +1,37 @@
----
-- name: "create directory"
-  file:
-    path: /home/ubuntu/backend
-    state: directory
+- name: "upgrade packages."
+  become: true
+  apt:
+    upgrade: "yes"
 
-- name: "extract zipped file"
-  unarchive:
-    src: ~/project/artifact.tar.gz
-    dest: /home/ubuntu/backend
+- name: "install dependencies."
+  become: true
+  apt:
+    name: ["nodejs", "npm"]
+    update_cache: yes
 
-- name: "Installing Node Dependencies"
+- name: "install pm2"
+  become: true
+  npm:
+    name: pm2
+    global: yes
+    production: yes
+    state: present
+
+- name: "deploy backend app to new location"
+  become: true
+  copy:
+    src: app.tar.gz
+    dest: /home/ubuntu/
+    
+- name: "Unpack app.tar.gz files"
+  become: true
   shell: |
-      cd ~/home/ubuntu/backend
-      npm i
-
-- name: Start app
-  command: |
-      npm install
-      pm2 stop default
-      pm2 start npm -- start
+    cd /home/ubuntu/
+    tar xzvf app.tar.gz
+    rm app.tar.gz
+    ls
+- name: "running backend app"
+  become: true
+  shell: |
+    cd /home/ubuntu/dist
+    pm2 start main.js
