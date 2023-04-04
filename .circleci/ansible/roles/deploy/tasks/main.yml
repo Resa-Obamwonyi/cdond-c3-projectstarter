@@ -1,4 +1,9 @@
+- name: "create directory"
+  file:
+    path: /home/ubuntu/backend
+    state: directory
+
 - name: "extract zipped file"
   unarchive:
-    src: ~/artifact.tar.gz
-    dest: ~/
+    src: ~/project/artifact.tar.gz
+    dest: /home/ubuntu/backend
