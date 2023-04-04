@@ -6,7 +6,7 @@
 
 - name: copy files
   copy:
-    src: artifact.tar.gz
+    src: ~/project/artifact.tar.gz
     dest: ~/backend
     backup: true
     
