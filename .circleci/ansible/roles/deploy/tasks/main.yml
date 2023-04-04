@@ -20,15 +20,15 @@
 - name: "deploy backend app to new location"
   become: true
   copy:
-    src: app.tar.gz
+    src: ~/project/artifact.tar.gz
     dest: /home/ubuntu/
     
 - name: "Unpack artifact.tar.gz files"
   become: true
   shell: |
     cd /home/ubuntu/
-    tar xzvf ~/project/artifact.tar.gz
-    rm ~/project/artifact.tar.gz
+    tar xzvf artifact.tar.gz
+    rm artifact.tar.gz
     ls
 - name: "running backend app"
   become: true
