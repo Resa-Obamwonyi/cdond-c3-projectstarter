@@ -1,5 +1,5 @@
 URL01 (repository) - https://github.com/Resa-Obamwonyi/cdond-c3-projectstarter
 URL02 (frontend/s3 bucket) -  http://udapeople-2ecdd41.s3-website-us-east-1.amazonaws.com
 URL03 (cloudfront) - https://d16xdb5mzt8hat.cloudfront.net
-URL04 (backend EC2) - ec2-3-88-161-234.compute-1.amazonaws.com
+URL04 (backend EC2) - ec2-54-145-53-61.compute-1.amazonaws.com
 URL05 (public url to prometheus) - http://ec2-34-230-37-101.compute-1.amazonaws.com:9090/graph
